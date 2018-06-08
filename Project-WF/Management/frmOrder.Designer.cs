@@ -69,18 +69,19 @@
             this.orderDate = new System.Windows.Forms.DateTimePicker();
             this.sell_ManagementDataSet = new Project_WF.Sell_ManagementDataSet();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.numDiscount = new System.Windows.Forms.NumericUpDown();
+            this.numQuantity = new System.Windows.Forms.NumericUpDown();
+            this.numPrice = new System.Windows.Forms.NumericUpDown();
+            this.cbbProduct = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.date_allocatedDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dpkAllocated = new System.Windows.Forms.DateTimePicker();
             this.order_detail_statusTextBox = new System.Windows.Forms.TextBox();
-            this.discountTextBox = new System.Windows.Forms.TextBox();
-            this.unit_priceTextBox = new System.Windows.Forms.TextBox();
-            this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.grb1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.grboxOrder = new System.Windows.Forms.GroupBox();
             this.ordersDataGridView = new System.Windows.Forms.DataGridView();
             this.dtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,7 +107,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.idData = new System.Windows.Forms.DataGridView();
-            this.cbbProduct = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             employee_idLabel = new System.Windows.Forms.Label();
             customer_idLabel = new System.Windows.Forms.Label();
             order_dateLabel = new System.Windows.Forms.Label();
@@ -131,6 +132,9 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sell_ManagementDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             this.grb1.SuspendLayout();
             this.grboxOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
@@ -481,18 +485,18 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.numDiscount);
+            this.groupBox2.Controls.Add(this.numQuantity);
+            this.groupBox2.Controls.Add(this.numPrice);
             this.groupBox2.Controls.Add(this.cbbProduct);
             this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Controls.Add(date_allocatedLabel);
-            this.groupBox2.Controls.Add(this.date_allocatedDateTimePicker);
+            this.groupBox2.Controls.Add(this.dpkAllocated);
             this.groupBox2.Controls.Add(order_detail_statusLabel);
             this.groupBox2.Controls.Add(this.order_detail_statusTextBox);
             this.groupBox2.Controls.Add(discountLabel);
-            this.groupBox2.Controls.Add(this.discountTextBox);
             this.groupBox2.Controls.Add(unit_priceLabel);
-            this.groupBox2.Controls.Add(this.unit_priceTextBox);
             this.groupBox2.Controls.Add(quantityLabel);
-            this.groupBox2.Controls.Add(this.quantityTextBox);
             this.groupBox2.Controls.Add(product_idLabel);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(303, 361);
@@ -502,6 +506,35 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Order Detail";
             // 
+            // numDiscount
+            // 
+            this.numDiscount.Location = new System.Drawing.Point(342, 80);
+            this.numDiscount.Name = "numDiscount";
+            this.numDiscount.Size = new System.Drawing.Size(120, 22);
+            this.numDiscount.TabIndex = 16;
+            // 
+            // numQuantity
+            // 
+            this.numQuantity.Location = new System.Drawing.Point(100, 80);
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(151, 22);
+            this.numQuantity.TabIndex = 15;
+            // 
+            // numPrice
+            // 
+            this.numPrice.Location = new System.Drawing.Point(342, 39);
+            this.numPrice.Name = "numPrice";
+            this.numPrice.Size = new System.Drawing.Size(120, 22);
+            this.numPrice.TabIndex = 14;
+            // 
+            // cbbProduct
+            // 
+            this.cbbProduct.FormattingEnabled = true;
+            this.cbbProduct.Location = new System.Drawing.Point(100, 39);
+            this.cbbProduct.Name = "cbbProduct";
+            this.cbbProduct.Size = new System.Drawing.Size(151, 23);
+            this.cbbProduct.TabIndex = 13;
+            // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(769, 43);
@@ -510,52 +543,34 @@
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add Product";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // date_allocatedDateTimePicker
+            // dpkAllocated
             // 
-            this.date_allocatedDateTimePicker.Location = new System.Drawing.Point(611, 83);
-            this.date_allocatedDateTimePicker.Name = "date_allocatedDateTimePicker";
-            this.date_allocatedDateTimePicker.Size = new System.Drawing.Size(102, 22);
-            this.date_allocatedDateTimePicker.TabIndex = 11;
+            this.dpkAllocated.Location = new System.Drawing.Point(611, 83);
+            this.dpkAllocated.Name = "dpkAllocated";
+            this.dpkAllocated.Size = new System.Drawing.Size(102, 22);
+            this.dpkAllocated.TabIndex = 11;
             // 
             // order_detail_statusTextBox
             // 
+            this.order_detail_statusTextBox.Enabled = false;
             this.order_detail_statusTextBox.Location = new System.Drawing.Point(611, 39);
             this.order_detail_statusTextBox.Name = "order_detail_statusTextBox";
             this.order_detail_statusTextBox.Size = new System.Drawing.Size(102, 22);
             this.order_detail_statusTextBox.TabIndex = 9;
             // 
-            // discountTextBox
-            // 
-            this.discountTextBox.Location = new System.Drawing.Point(342, 89);
-            this.discountTextBox.Name = "discountTextBox";
-            this.discountTextBox.Size = new System.Drawing.Size(126, 22);
-            this.discountTextBox.TabIndex = 7;
-            // 
-            // unit_priceTextBox
-            // 
-            this.unit_priceTextBox.Location = new System.Drawing.Point(342, 35);
-            this.unit_priceTextBox.Name = "unit_priceTextBox";
-            this.unit_priceTextBox.Size = new System.Drawing.Size(126, 22);
-            this.unit_priceTextBox.TabIndex = 5;
-            // 
-            // quantityTextBox
-            // 
-            this.quantityTextBox.Location = new System.Drawing.Point(99, 86);
-            this.quantityTextBox.Name = "quantityTextBox";
-            this.quantityTextBox.Size = new System.Drawing.Size(152, 22);
-            this.quantityTextBox.TabIndex = 3;
-            // 
             // grb1
             // 
+            this.grb1.Controls.Add(this.button1);
             this.grb1.Controls.Add(this.button5);
-            this.grb1.Controls.Add(this.button4);
+            this.grb1.Controls.Add(this.btnSave);
             this.grb1.Controls.Add(this.button3);
             this.grb1.Controls.Add(this.button2);
-            this.grb1.Controls.Add(this.button1);
-            this.grb1.Location = new System.Drawing.Point(402, 669);
+            this.grb1.Controls.Add(this.btnThem);
+            this.grb1.Location = new System.Drawing.Point(272, 669);
             this.grb1.Name = "grb1";
-            this.grb1.Size = new System.Drawing.Size(607, 74);
+            this.grb1.Size = new System.Drawing.Size(737, 74);
             this.grb1.TabIndex = 27;
             this.grb1.TabStop = false;
             this.grb1.Text = "Access";
@@ -569,15 +584,15 @@
             this.button5.Text = "Back";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnSave
             // 
-            this.button4.Location = new System.Drawing.Point(367, 24);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 44);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Exit";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnSave.Location = new System.Drawing.Point(367, 24);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 44);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -597,14 +612,15 @@
             this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnThem
             // 
-            this.button1.Location = new System.Drawing.Point(27, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 44);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnThem.Location = new System.Drawing.Point(27, 24);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(90, 44);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "Add";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.button1_Click);
             // 
             // grboxOrder
             // 
@@ -649,6 +665,7 @@
             this.ordersDataGridView.Size = new System.Drawing.Size(260, 408);
             this.ordersDataGridView.TabIndex = 5;
             this.ordersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ordersDataGridView_CellClick_1);
+            this.ordersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ordersDataGridView_CellContentClick);
             // 
             // dtId
             // 
@@ -816,13 +833,15 @@
             this.idData.Size = new System.Drawing.Size(864, 137);
             this.idData.TabIndex = 3;
             // 
-            // cbbProduct
+            // button1
             // 
-            this.cbbProduct.FormattingEnabled = true;
-            this.cbbProduct.Location = new System.Drawing.Point(100, 39);
-            this.cbbProduct.Name = "cbbProduct";
-            this.cbbProduct.Size = new System.Drawing.Size(151, 23);
-            this.cbbProduct.TabIndex = 13;
+            this.button1.Location = new System.Drawing.Point(571, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 42);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmOrder
             // 
@@ -847,6 +866,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.sell_ManagementDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.grb1.ResumeLayout(false);
             this.grboxOrder.ResumeLayout(false);
             this.grboxOrder.PerformLayout();
@@ -876,17 +898,14 @@
         private System.Windows.Forms.DateTimePicker orderDate;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DateTimePicker date_allocatedDateTimePicker;
+        private System.Windows.Forms.DateTimePicker dpkAllocated;
         private System.Windows.Forms.TextBox order_detail_statusTextBox;
-        private System.Windows.Forms.TextBox discountTextBox;
-        private System.Windows.Forms.TextBox unit_priceTextBox;
-        private System.Windows.Forms.TextBox quantityTextBox;
         private System.Windows.Forms.GroupBox grb1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.GroupBox grboxOrder;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DateTimePicker dtptoDate;
@@ -915,5 +934,9 @@
         private System.Windows.Forms.ComboBox cboEmployee;
         private System.Windows.Forms.ComboBox cboCustomer;
         private System.Windows.Forms.ComboBox cbbProduct;
+        private System.Windows.Forms.NumericUpDown numDiscount;
+        private System.Windows.Forms.NumericUpDown numQuantity;
+        private System.Windows.Forms.NumericUpDown numPrice;
+        private System.Windows.Forms.Button button1;
     }
 }

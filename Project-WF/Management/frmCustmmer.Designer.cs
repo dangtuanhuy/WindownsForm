@@ -57,12 +57,6 @@
             this.txtPostal = new System.Windows.Forms.TextBox();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.customersDataGridView = new System.Windows.Forms.DataGridView();
-            this.grb1 = new System.Windows.Forms.GroupBox();
-            this.btnReload = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.dtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +69,12 @@
             this.dtState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grb1 = new System.Windows.Forms.GroupBox();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             idLabel = new System.Windows.Forms.Label();
             last_nameLabel = new System.Windows.Forms.Label();
             first_nameLabel = new System.Windows.Forms.Label();
@@ -333,68 +333,6 @@
             this.customersDataGridView.TabIndex = 25;
             this.customersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customersDataGridView_CellClick);
             // 
-            // grb1
-            // 
-            this.grb1.Controls.Add(this.btnReload);
-            this.grb1.Controls.Add(this.btnExit);
-            this.grb1.Controls.Add(this.btnDelete);
-            this.grb1.Controls.Add(this.btnEdit);
-            this.grb1.Controls.Add(this.btnAdd);
-            this.grb1.Location = new System.Drawing.Point(295, 344);
-            this.grb1.Name = "grb1";
-            this.grb1.Size = new System.Drawing.Size(607, 100);
-            this.grb1.TabIndex = 26;
-            this.grb1.TabStop = false;
-            this.grb1.Text = "Access";
-            // 
-            // btnReload
-            // 
-            this.btnReload.Location = new System.Drawing.Point(474, 35);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(75, 44);
-            this.btnReload.TabIndex = 4;
-            this.btnReload.Text = "Back";
-            this.btnReload.UseVisualStyleBackColor = true;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(370, 35);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 44);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(249, 35);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(87, 44);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(135, 35);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(85, 44);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(17, 35);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(90, 44);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dtId
             // 
             this.dtId.DataPropertyName = "id";
@@ -467,6 +405,70 @@
             this.dtCountry.DataPropertyName = "country";
             this.dtCountry.HeaderText = "Country";
             this.dtCountry.Name = "dtCountry";
+            // 
+            // grb1
+            // 
+            this.grb1.Controls.Add(this.btnReload);
+            this.grb1.Controls.Add(this.btnExit);
+            this.grb1.Controls.Add(this.btnDelete);
+            this.grb1.Controls.Add(this.btnEdit);
+            this.grb1.Controls.Add(this.btnAdd);
+            this.grb1.Location = new System.Drawing.Point(295, 344);
+            this.grb1.Name = "grb1";
+            this.grb1.Size = new System.Drawing.Size(607, 100);
+            this.grb1.TabIndex = 26;
+            this.grb1.TabStop = false;
+            this.grb1.Text = "Access";
+            // 
+            // btnReload
+            // 
+            this.btnReload.Location = new System.Drawing.Point(474, 35);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(75, 44);
+            this.btnReload.TabIndex = 4;
+            this.btnReload.Text = "Clear";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(370, 35);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 44);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(249, 35);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(87, 44);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(135, 35);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(85, 44);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(17, 35);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(90, 44);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmCustmmer
             // 

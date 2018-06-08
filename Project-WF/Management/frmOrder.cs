@@ -191,23 +191,19 @@ namespace Project_WF.Management
             //Lấy danh sách sản phẩm
             loadListProduct();
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             loadOrder();
         }
-
         private void ordersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
            
         }
-
         private void ordersBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
             
 
         }
-
         private void ordersDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -241,13 +237,7 @@ namespace Project_WF.Management
                 LoadChiTietDonHang(idDonHang);
             }
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            new frmMain().Show();
-        }
-
+        
         private void grboxOrder_Enter(object sender, EventArgs e)
         {
 
@@ -290,5 +280,145 @@ namespace Project_WF.Management
                 }
             }
         }
+        private void ordersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        public void clearData()
+        {
+            cboCustomer.Text = "";
+            cboEmployee.Text = "";
+            orderDate.Value = DateTime.Now;
+            shipperDate.Value = DateTime.Now;
+            txtShipName.Text = "";
+            txtShipAddress.Text = "";
+            txtShipAddress2.Text = "";
+            txtShipCity.Text = "";
+            txtState.Text = "";
+            txtPostal.Text = "";
+            txtShipCountry.Text = "";
+            txtShipFee.Text = "";
+            txtPayment.Text = "";
+            dpkPaid.Value = DateTime.Now;
+            txtStatus.Text = "";
+            //Product
+            cbbProduct.Text = "";
+            sell_ManagementDataSet.order_details.Clear();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Lam sach du lieu
+            clearData();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int OrderId = 0;
+            int ProductId = ((KeyValuePair<int, string>)cbbProduct.SelectedItem).Key;
+            decimal Quantity = numQuantity.Value;
+            decimal UnitPrice = numPrice.Value;
+            decimal Discount = numDiscount.Value;
+            string Status = "On Order";
+            string dataAllocatecd = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            sell_ManagementDataSet.order_details.Rows.Add(OrderId, ProductId, Quantity, UnitPrice, Discount, Status, dataAllocatecd);
+
+            //Clearn
+            cbbProduct.Text = "";
+            numDiscount.Value = 0;
+            numPrice.Value = 0;
+            numQuantity.Value = 0;
+            dpkAllocated.Value = DateTime.Now;
+
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //this.Close();
+            //new frmMain().Show();
+            // Tạo câu lệnh để thực thi đến database
+            string queryString = @"INSERT INTO orders(employee_id, customer_id, order_date, shipped_date, ship_name, ship_address1, ship_address2, ship_city, ship_state, ship_postal_code, ship_country, shipping_fee, payment_type, paid_date, order_status)"
+                               + " VALUES(@employee_id, @customer_id, @order_date, @shipped_date, @ship_name, @ship_address1, @ship_address2, @ship_city, @ship_state, @ship_postal_code, @ship_country, @shipping_fee, @payment_type, @paid_date, @order_status);"
+                               + " SELECT CAST(scope_identity() AS int)";
+            // Tạo object từ class SqlConnection (dùng để quản lý kết nối đến Database Server)
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                // Tạo object từ class SqlCommand (dùng để quản lý việc thực thi câu lệnh)
+                using (SqlCommand command = new SqlCommand(queryString, connection))
+                {
+                    try
+                    {
+                        // Mở kết nối đến Database Server
+                        connection.Open();
+                        // Truyền dữ liệu vào đúng tham số
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@employee_id", ((KeyValuePair<int, string>)cboEmployee.SelectedItem).Key);
+                        command.Parameters.AddWithValue("@customer_id", ((KeyValuePair<int, string>)cboCustomer.SelectedItem).Key);
+                        command.Parameters.AddWithValue("@order_date", orderDate.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+                        command.Parameters.AddWithValue("@shipped_date", shipperDate.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+                        command.Parameters.AddWithValue("@ship_name", txtShipName.Text);
+                        command.Parameters.AddWithValue("@ship_address1", txtShipAddress.Text);
+                        command.Parameters.AddWithValue("@ship_address2", txtShipAddress2.Text);
+                        command.Parameters.AddWithValue("@ship_city", txtShipCity.Text);
+                        command.Parameters.AddWithValue("@ship_state", txtState.Text);
+                        command.Parameters.AddWithValue("@ship_postal_code", txtPostal.Text);
+                        command.Parameters.AddWithValue("@ship_country", txtShipCountry.Text);
+                        command.Parameters.AddWithValue("@shipping_fee", txtShipFee.Text);
+                        command.Parameters.AddWithValue("@payment_type", txtPayment.Text);
+                        command.Parameters.AddWithValue("@paid_date", dpkPaid.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+                        command.Parameters.AddWithValue("@order_status", txtStatus.Text);
+                        // Thực thi câu lệnh INSERT order và lấy ORDER_ID
+                        int orderIdInserted = (int)command.ExecuteScalar();
+                        // Insert table Order_details
+                        foreach (DataRow row in sell_ManagementDataSet.order_details.Rows)
+                        {
+                            int orderId = orderIdInserted;
+                            int productId = Convert.ToInt32(row["product_id"]);
+                            decimal soLuong = Convert.ToInt32(row["quantity"]);
+                            decimal donGia = Convert.ToInt32(row["unit_price"]);
+                            decimal giamGia = Convert.ToInt32(row["discount"]);
+                            string status = row["order_detail_status"].ToString();
+                            string dateAllocated = row["date_allocated"].ToString();
+                            string subQueryString = @"INSERT INTO order_details(order_id, product_id, quantity, unit_price, discount, order_detail_status, date_allocated)"
+                               + " VALUES(@order_id, @product_id, @quantity, @unit_price, @discount, @order_detail_status, @date_allocated)";
+                            // Tạo object từ class SqlCommand (dùng để quản lý việc thực thi câu lệnh)
+                            using (SqlCommand subCommand = new SqlCommand(subQueryString, connection))
+                            {
+                                // Truyền dữ liệu vào đúng tham số
+                                subCommand.CommandType = CommandType.Text;
+                                subCommand.Parameters.AddWithValue("@order_id", orderId);
+                                subCommand.Parameters.AddWithValue("@product_id", productId);
+                                subCommand.Parameters.AddWithValue("@quantity", soLuong);
+                                subCommand.Parameters.AddWithValue("@unit_price", donGia);
+                                subCommand.Parameters.AddWithValue("@discount", giamGia);
+                                subCommand.Parameters.AddWithValue("@order_detail_status", status);
+                                subCommand.Parameters.AddWithValue("@date_allocated", dateAllocated);
+                                subCommand.ExecuteNonQuery();
+                            }
+                        }
+                        // Ngắt kết nối đến Database Server
+                        connection.Close();
+                        // Load lại danh sách cấu hình
+                        //LoadDanhMucCauHinh();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Hiển thị thông báo nếu có lỗi
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmReports frm = new frmReports();
+            frm.DataOrder = sell_ManagementDataSet.order_details;
+            frm.ShowDialog();
+        }
     }
+
 }
+    
+

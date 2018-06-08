@@ -341,6 +341,32 @@ namespace Project_WF.Management
                 }
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ClearnCustomer()
+        {
+            txtLastName.Text = "";
+            txtFirstName.Text = "";
+            txtEmail.Text = "";
+            txtCompany.Text = "";
+            txtCountry.Text = "";
+            txtPhone.Text = "";
+            txtAddress.Text = "";
+            txtAddress1.Text = "";
+            txtState.Text = "";
+            txtId.Text = "";
+            txtPostal.Text = "";
+            txtCity.Text = "";
+            sell_ManagementDataSet.customers.Clear();
+        }
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            ClearnCustomer();
+        }
     }
 }
 
