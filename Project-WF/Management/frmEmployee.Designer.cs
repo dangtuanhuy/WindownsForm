@@ -57,6 +57,21 @@
             this.txtState = new System.Windows.Forms.TextBox();
             this.txtPostCode = new System.Windows.Forms.TextBox();
             this.employeesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtPass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.grb1 = new System.Windows.Forms.GroupBox();
             this.btnBack = new System.Windows.Forms.Button();
@@ -74,21 +89,6 @@
             this.ptxPicture = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpload = new System.Windows.Forms.Button();
-            this.dtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtPass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             last_nameLabel = new System.Windows.Forms.Label();
             first_nameLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
@@ -358,6 +358,97 @@
             this.employeesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeesDataGridView_CellClick);
             this.employeesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeesDataGridView_CellContentClick);
             // 
+            // dtId
+            // 
+            this.dtId.DataPropertyName = "id";
+            this.dtId.HeaderText = "id";
+            this.dtId.Name = "dtId";
+            this.dtId.ReadOnly = true;
+            // 
+            // dtLastName
+            // 
+            this.dtLastName.DataPropertyName = "last_name";
+            this.dtLastName.HeaderText = "Last Name";
+            this.dtLastName.Name = "dtLastName";
+            // 
+            // dtFirstName
+            // 
+            this.dtFirstName.DataPropertyName = "first_name";
+            this.dtFirstName.HeaderText = "First Name";
+            this.dtFirstName.Name = "dtFirstName";
+            // 
+            // dtEmail
+            // 
+            this.dtEmail.DataPropertyName = "email";
+            this.dtEmail.HeaderText = "Email";
+            this.dtEmail.Name = "dtEmail";
+            // 
+            // dtPass
+            // 
+            this.dtPass.DataPropertyName = "password";
+            this.dtPass.HeaderText = "Password";
+            this.dtPass.Name = "dtPass";
+            // 
+            // dtGender
+            // 
+            this.dtGender.DataPropertyName = "gender";
+            this.dtGender.HeaderText = "Gender";
+            this.dtGender.Name = "dtGender";
+            // 
+            // dtBirthday
+            // 
+            this.dtBirthday.DataPropertyName = "birthday";
+            this.dtBirthday.HeaderText = "Birthday";
+            this.dtBirthday.Name = "dtBirthday";
+            // 
+            // dtJob
+            // 
+            this.dtJob.DataPropertyName = "job_title";
+            this.dtJob.HeaderText = "Job";
+            this.dtJob.Name = "dtJob";
+            // 
+            // dtDepartment
+            // 
+            this.dtDepartment.DataPropertyName = "department";
+            this.dtDepartment.HeaderText = "Department";
+            this.dtDepartment.Name = "dtDepartment";
+            // 
+            // dtPhone
+            // 
+            this.dtPhone.DataPropertyName = "phone";
+            this.dtPhone.HeaderText = "Phone";
+            this.dtPhone.Name = "dtPhone";
+            // 
+            // dtCountry
+            // 
+            this.dtCountry.DataPropertyName = "country";
+            this.dtCountry.HeaderText = "Country";
+            this.dtCountry.Name = "dtCountry";
+            // 
+            // dtCity
+            // 
+            this.dtCity.DataPropertyName = "city";
+            this.dtCity.HeaderText = "City";
+            this.dtCity.Name = "dtCity";
+            // 
+            // dtState
+            // 
+            this.dtState.DataPropertyName = "state";
+            this.dtState.HeaderText = "State";
+            this.dtState.Name = "dtState";
+            // 
+            // dtPostal
+            // 
+            this.dtPostal.DataPropertyName = "postal_code";
+            this.dtPostal.HeaderText = "Postal";
+            this.dtPostal.Name = "dtPostal";
+            // 
+            // dtAddress
+            // 
+            this.dtAddress.DataPropertyName = "address1";
+            this.dtAddress.HeaderText = "Address";
+            this.dtAddress.Name = "dtAddress";
+            // 
             // txtPhone
             // 
             this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeesBindingSource, "phone", true));
@@ -382,12 +473,13 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(474, 35);
+            this.btnBack.Location = new System.Drawing.Point(470, 35);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 44);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnExit
             // 
@@ -521,97 +613,6 @@
             this.btnUpload.TabIndex = 35;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
-            // 
-            // dtId
-            // 
-            this.dtId.DataPropertyName = "id";
-            this.dtId.HeaderText = "id";
-            this.dtId.Name = "dtId";
-            this.dtId.ReadOnly = true;
-            // 
-            // dtLastName
-            // 
-            this.dtLastName.DataPropertyName = "last_name";
-            this.dtLastName.HeaderText = "Last Name";
-            this.dtLastName.Name = "dtLastName";
-            // 
-            // dtFirstName
-            // 
-            this.dtFirstName.DataPropertyName = "first_name";
-            this.dtFirstName.HeaderText = "First Name";
-            this.dtFirstName.Name = "dtFirstName";
-            // 
-            // dtEmail
-            // 
-            this.dtEmail.DataPropertyName = "email";
-            this.dtEmail.HeaderText = "Email";
-            this.dtEmail.Name = "dtEmail";
-            // 
-            // dtPass
-            // 
-            this.dtPass.DataPropertyName = "password";
-            this.dtPass.HeaderText = "Password";
-            this.dtPass.Name = "dtPass";
-            // 
-            // dtGender
-            // 
-            this.dtGender.DataPropertyName = "gender";
-            this.dtGender.HeaderText = "Gender";
-            this.dtGender.Name = "dtGender";
-            // 
-            // dtBirthday
-            // 
-            this.dtBirthday.DataPropertyName = "birthday";
-            this.dtBirthday.HeaderText = "Birthday";
-            this.dtBirthday.Name = "dtBirthday";
-            // 
-            // dtJob
-            // 
-            this.dtJob.DataPropertyName = "job_title";
-            this.dtJob.HeaderText = "Job";
-            this.dtJob.Name = "dtJob";
-            // 
-            // dtDepartment
-            // 
-            this.dtDepartment.DataPropertyName = "department";
-            this.dtDepartment.HeaderText = "Department";
-            this.dtDepartment.Name = "dtDepartment";
-            // 
-            // dtPhone
-            // 
-            this.dtPhone.DataPropertyName = "phone";
-            this.dtPhone.HeaderText = "Phone";
-            this.dtPhone.Name = "dtPhone";
-            // 
-            // dtCountry
-            // 
-            this.dtCountry.DataPropertyName = "country";
-            this.dtCountry.HeaderText = "Country";
-            this.dtCountry.Name = "dtCountry";
-            // 
-            // dtCity
-            // 
-            this.dtCity.DataPropertyName = "city";
-            this.dtCity.HeaderText = "City";
-            this.dtCity.Name = "dtCity";
-            // 
-            // dtState
-            // 
-            this.dtState.DataPropertyName = "state";
-            this.dtState.HeaderText = "State";
-            this.dtState.Name = "dtState";
-            // 
-            // dtPostal
-            // 
-            this.dtPostal.DataPropertyName = "postal_code";
-            this.dtPostal.HeaderText = "Postal";
-            this.dtPostal.Name = "dtPostal";
-            // 
-            // dtAddress
-            // 
-            this.dtAddress.DataPropertyName = "address1";
-            this.dtAddress.HeaderText = "Address";
-            this.dtAddress.Name = "dtAddress";
             // 
             // frmEmployee
             // 

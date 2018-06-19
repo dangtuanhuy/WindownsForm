@@ -70,7 +70,7 @@ namespace Project_WF.Management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtLastName.Text))
+                if (String.IsNullOrEmpty(txtLastName.Text))
             {
                 MessageBox.Show("Please! Check Data");
                 return;

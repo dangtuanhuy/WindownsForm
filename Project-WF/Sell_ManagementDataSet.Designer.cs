@@ -3172,6 +3172,10 @@ namespace Project_WF {
             
             private global::System.Data.DataColumn columndate_allocated;
             
+            private global::System.Data.DataColumn columnreport_employee_name;
+            
+            private global::System.Data.DataColumn columnreport_cusromer_name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public order_detailsDataTable() {
@@ -3263,6 +3267,22 @@ namespace Project_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn report_employee_nameColumn {
+                get {
+                    return this.columnreport_employee_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn report_cusromer_nameColumn {
+                get {
+                    return this.columnreport_cusromer_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3298,7 +3318,7 @@ namespace Project_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public order_detailsRow Addorder_detailsRow(productsRow parentproductsRowByfk_order_details__products, decimal quantity, decimal unit_price, decimal discount, string order_detail_status, System.DateTime date_allocated) {
+            public order_detailsRow Addorder_detailsRow(productsRow parentproductsRowByfk_order_details__products, decimal quantity, decimal unit_price, decimal discount, string order_detail_status, System.DateTime date_allocated, string report_employee_name, string report_cusromer_name) {
                 order_detailsRow roworder_detailsRow = ((order_detailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3307,7 +3327,9 @@ namespace Project_WF {
                         unit_price,
                         discount,
                         order_detail_status,
-                        date_allocated};
+                        date_allocated,
+                        report_employee_name,
+                        report_cusromer_name};
                 if ((parentproductsRowByfk_order_details__products != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_order_details__products[0];
                 }
@@ -3348,6 +3370,8 @@ namespace Project_WF {
                 this.columndiscount = base.Columns["discount"];
                 this.columnorder_detail_status = base.Columns["order_detail_status"];
                 this.columndate_allocated = base.Columns["date_allocated"];
+                this.columnreport_employee_name = base.Columns["report_employee_name"];
+                this.columnreport_cusromer_name = base.Columns["report_cusromer_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3367,6 +3391,10 @@ namespace Project_WF {
                 base.Columns.Add(this.columnorder_detail_status);
                 this.columndate_allocated = new global::System.Data.DataColumn("date_allocated", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_allocated);
+                this.columnreport_employee_name = new global::System.Data.DataColumn("report_employee_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnreport_employee_name);
+                this.columnreport_cusromer_name = new global::System.Data.DataColumn("report_cusromer_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnreport_cusromer_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnorder_id,
                                 this.columnproduct_id}, true));
@@ -6460,6 +6488,38 @@ namespace Project_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string report_employee_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableorder_details.report_employee_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'report_employee_name\' in table \'order_details\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableorder_details.report_employee_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string report_cusromer_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableorder_details.report_cusromer_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'report_cusromer_name\' in table \'order_details\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableorder_details.report_cusromer_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ordersRow ordersRow {
                 get {
                     return ((ordersRow)(this.GetParentRow(this.Table.ParentRelations["fk_order_details__orders"])));
@@ -6514,6 +6574,30 @@ namespace Project_WF {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setdate_allocatedNull() {
                 this[this.tableorder_details.date_allocatedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isreport_employee_nameNull() {
+                return this.IsNull(this.tableorder_details.report_employee_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setreport_employee_nameNull() {
+                this[this.tableorder_details.report_employee_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isreport_cusromer_nameNull() {
+                return this.IsNull(this.tableorder_details.report_cusromer_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setreport_cusromer_nameNull() {
+                this[this.tableorder_details.report_cusromer_nameColumn] = global::System.Convert.DBNull;
             }
         }
         

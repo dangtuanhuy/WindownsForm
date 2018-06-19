@@ -40,21 +40,21 @@
             this.btnEditConfig = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.configDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sell_ManagementDataSet1 = new Project_WF.Sell_ManagementDataSet();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.txtValues = new System.Windows.Forms.TextBox();
-            this.configBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             idLabel = new System.Windows.Forms.Label();
             keyLabel1 = new System.Windows.Forms.Label();
             valuesLabel1 = new System.Windows.Forms.Label();
             this.grb1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.configDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sell_ManagementDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.configBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sell_ManagementDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // idLabel
@@ -106,6 +106,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "Back";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -115,6 +116,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Exit";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnDeleteConfig
             // 
@@ -162,6 +164,30 @@
             this.configDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.configDataGridView_CellClick);
             this.configDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.configDataGridView_CellContentClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // keyDataGridViewTextBoxColumn
+            // 
+            this.keyDataGridViewTextBoxColumn.DataPropertyName = "Key";
+            this.keyDataGridViewTextBoxColumn.HeaderText = "Key";
+            this.keyDataGridViewTextBoxColumn.Name = "keyDataGridViewTextBoxColumn";
+            // 
+            // valuesDataGridViewTextBoxColumn
+            // 
+            this.valuesDataGridViewTextBoxColumn.DataPropertyName = "Values";
+            this.valuesDataGridViewTextBoxColumn.HeaderText = "Values";
+            this.valuesDataGridViewTextBoxColumn.Name = "valuesDataGridViewTextBoxColumn";
+            // 
+            // configBindingSource
+            // 
+            this.configBindingSource.DataMember = "config";
+            this.configBindingSource.DataSource = this.sell_ManagementDataSet1;
+            // 
             // sell_ManagementDataSet1
             // 
             this.sell_ManagementDataSet1.DataSetName = "Sell_ManagementDataSet";
@@ -189,30 +215,6 @@
             this.txtValues.Size = new System.Drawing.Size(173, 20);
             this.txtValues.TabIndex = 30;
             // 
-            // configBindingSource
-            // 
-            this.configBindingSource.DataMember = "config";
-            this.configBindingSource.DataSource = this.sell_ManagementDataSet1;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // keyDataGridViewTextBoxColumn
-            // 
-            this.keyDataGridViewTextBoxColumn.DataPropertyName = "Key";
-            this.keyDataGridViewTextBoxColumn.HeaderText = "Key";
-            this.keyDataGridViewTextBoxColumn.Name = "keyDataGridViewTextBoxColumn";
-            // 
-            // valuesDataGridViewTextBoxColumn
-            // 
-            this.valuesDataGridViewTextBoxColumn.DataPropertyName = "Values";
-            this.valuesDataGridViewTextBoxColumn.HeaderText = "Values";
-            this.valuesDataGridViewTextBoxColumn.Name = "valuesDataGridViewTextBoxColumn";
-            // 
             // FormConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,8 +235,8 @@
             this.Load += new System.EventHandler(this.FormConfig_Load);
             this.grb1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.configDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sell_ManagementDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.configBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sell_ManagementDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
